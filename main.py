@@ -61,7 +61,6 @@ if(game_choice == "dice roll"):
     total_rolls = 0
     while(play_again == True):
         dice_result = random.randint(1, 6)
-        print("The dice result is: " + str(dice_result))
         if(total_rolls == 0):
             print("Welcome to the dice roll game!")
 
