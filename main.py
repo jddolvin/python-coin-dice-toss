@@ -1,20 +1,6 @@
 import random
 
-game_choice = input("Would you like to play 'coin toss' or 'dice roll'?: ")
-input_validation_game_choice = False
-
-while(input_validation_game_choice == False):
-    if(game_choice == "coin toss"):
-        print("Okay, let's get started with the coin toss!")
-        input_validation_game_choice = True
-    elif(game_choice == "dice roll"):
-        print("Okay, let's get started with the dice roll!")
-        input_validation_game_choice = True
-    else:
-        game_choice = input(
-            "Sorry, I didn't understand that. Do you want to play 'coin toss', or, 'dice roll'?: ")
-
-if(game_choice == "coin toss"):
+def coin_toss():
     play_again = True
     user_score = 0
     total_flips = 0
@@ -55,7 +41,7 @@ if(game_choice == "coin toss"):
                 print("Invalid input! Please enter yes or no.")
                 again = input("Would you like to play again? (Yes/No): ")
 
-if(game_choice == "dice roll"):
+def dice_roll():
     play_again = True
     user_score = 0
     total_rolls = 0
@@ -93,3 +79,20 @@ if(game_choice == "dice roll"):
             else:
                 print("Invalid input! Please enter yes or no.")
                 again = input("Would you like to play again? (Yes/No): ")
+
+
+game_choice = input("Would you like to play 'coin toss' or 'dice roll'?: ")
+input_validation_game_choice = False
+
+while(input_validation_game_choice == False):
+    if(game_choice == "coin toss"):
+        print("Okay, let's get started with the coin toss!")
+        input_validation_game_choice = True
+        coin_toss()
+    elif(game_choice == "dice roll"):
+        print("Okay, let's get started with the dice roll!")
+        dice_roll()
+        input_validation_game_choice = True
+    else:
+        game_choice = input(
+            "Sorry, I didn't understand that. Do you want to play 'coin toss', or, 'dice roll'?: ")
