@@ -1,12 +1,12 @@
 import random
 
-heads_tails = random.randint(0, 1)
-play_again = 1
+play_again = True
 user_score = 0
 total_flips = 0
 options = ['Heads', 'Tails']
 
-while(play_again == 1):
+while(play_again == True):
+    heads_tails = random.randint(0, 1)
     if(total_flips == 0):
         print("Welcome to the coin toss game!")
 
@@ -22,5 +22,19 @@ while(play_again == 1):
         total_flips += 1
         print("Total guesses: " + str(total_flips) +
               " Correct guesses: " + str(user_score))
-    play_again = int(
-        input("Would you like to play again? Please enter 1 for yes, or, 0 for no: "))
+    again = input("Would you like to play again? (Yes/No): ")
+
+    input_validation_yes_no = False
+
+    while(input_validation_yes_no == False):
+        if(again == "No" or again == "no"):
+            play_again = False
+            input_validation_yes_no = True
+            print("Thanks for playing! You got " + str(user_score) +
+                  " correct out of " + str(total_flips) + " total coin tosses.")
+        elif(again == "Yes" or again == "yes"):
+            input_validation_yes_no = True
+            continue
+        else:
+            print("Invalid input! Please enter yes or no.")
+            again = input("Would you like to play again? (Yes/No): ")
