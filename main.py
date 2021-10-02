@@ -1,5 +1,6 @@
 import random
 
+
 def coin_toss():
     play_again = True
     user_score = 0
@@ -12,7 +13,7 @@ def coin_toss():
             print("Welcome to the coin toss game!")
 
         user_input = input(
-            "Please enter 'Heads' or 'Tails' (case sensitive!): ")
+            "Please enter 'Heads' or 'Tails' (case sensitive!)\n> ")
         if(user_input == options[heads_tails]):
             print("You guessed correctly!")
             user_score += 1
@@ -24,22 +25,19 @@ def coin_toss():
             total_flips += 1
             print("Total guesses: " + str(total_flips) +
                   " Correct guesses: " + str(user_score))
-        again = input("Would you like to play again? (Yes/No): ")
 
-        input_validation_yes_no = False
-
-        while(input_validation_yes_no == False):
-            if(again == "No" or again == "no"):
-                play_again = False
-                input_validation_yes_no = True
+        while True:
+            again = input("Would you like to play again? (Yes/No)\n> ")
+            if again in ["Yes", "yes", "Y", "y"]:
+                break
+            elif again in ["No", "no", "N", "n"]:
                 print("Thanks for playing! You got " + str(user_score) +
                       " correct out of " + str(total_flips) + " total coin tosses.")
-            elif(again == "Yes" or again == "yes"):
-                input_validation_yes_no = True
-                continue
+                play_again = False
+                break
             else:
-                print("Invalid input! Please enter yes or no.")
-                again = input("Would you like to play again? (Yes/No): ")
+                print("I didn't understand that.")
+
 
 def dice_roll():
     play_again = True
@@ -63,22 +61,18 @@ def dice_roll():
             total_rolls += 1
             print("Total guesses: " + str(total_rolls) +
                   " Correct guesses: " + str(user_score))
-        again = input("Would you like to play again? (Yes/No): ")
 
-        input_validation_yes_no = False
-
-        while(input_validation_yes_no == False):
-            if(again == "No" or again == "no"):
-                play_again = False
-                input_validation_yes_no = True
+        while True:
+            again = input("Would you like to play again? (Yes/No)\n> ")
+            if again in ["Yes", "yes", "Y", "y"]:
+                break
+            elif again in ["No", "no", "N", "n"]:
                 print("Thanks for playing! You got " + str(user_score) +
                       " correct out of " + str(total_rolls) + " total dice rolls.")
-            elif(again == "Yes" or again == "yes"):
-                input_validation_yes_no = True
-                continue
+                play_again = False
+                break
             else:
-                print("Invalid input! Please enter yes or no.")
-                again = input("Would you like to play again? (Yes/No): ")
+                print("I didn't understand that.")
 
 
 game_choice = input("Would you like to play 'coin toss' or 'dice roll'?: ")
